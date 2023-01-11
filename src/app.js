@@ -5,7 +5,7 @@ const { ObjectId } = require("mongodb");
 const app = express();
 
 // Get route to retrieve all subscriber names
-app.get("/subscribers/names", async (req, res) => {
+app.get("/subscribers", async (req, res) => {
   try {
     // Retrieve all subscribers and exclude the __v field, which is MongoDB's internal version field
     const subscribers = await subscribersSchema.find().select("name -_id");
@@ -25,20 +25,22 @@ app.get("/subscribers/names", async (req, res) => {
 });
 
 //Get route to retrieve all subscriber names and names only
-app.get("/subscribers", (req, res) => {
-  // Retrieve all subscribers and only the 'name' field
-  subscribersSchema.find({}, "name", (err, subscribers) => {
-    if (err) {
-      //If error occurs, return a 500 status code with error message
-      res.status(500).json({ error: "Error retrieving subscriber names" });
-    } else {
-      // otherwise return a 200 status code with the subscriber names
-      res.status(200).json(subscribers.map((s) => s.name));
-    }
-  });
+app.get("/subscribers/names", async (req, res) => {
+  // get all the subscribers from the database and exclude the __v field
+  const subscribers = await subscribersSchema
+    .find()
+    .select("-__v")
+    .catch((err) => {
+      //incase of an error, return a status code of 500 with the following message
+      res
+        .status(500)
+        .json({ error: "An error occurred while retrieving subscribers." });
+    });
+  if (!subscribers) return;
+  // return the subscribers with a status code of 200
+  res.status(200).json(subscribers);
 });
 
-// Get route to retrieve a specific subscriber by ID
 app.get("/subscribers/:id", (req, res) => {
   // Check if the provided ID is valid
   if (ObjectId.isValid(req.params.id)) {
