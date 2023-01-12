@@ -4,6 +4,13 @@ const { ObjectId } = require("mongodb");
 
 const app = express();
 
+app.route("/")
+  .get((req, res) => {
+    res.send(JSON.stringify("Hello Almabetter Team , I Am shiv Thank you for evaluating the project"));
+  });
+
+
+
 // Get route to retrieve all subscriber names
 app.get("/subscribers", async (req, res) => {
   try {

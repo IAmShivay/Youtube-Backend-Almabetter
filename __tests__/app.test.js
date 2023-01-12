@@ -3,6 +3,7 @@ const app = require("../src/app");
 const subscribersSchema = require("../src/models/subscribers");
 
 describe("GET /subscribers/:id", () => {
+  
     
   it("should return a 500 status code and an error message if an error occurs while retrieving the subscribers", async () => {
     // Mocking the error scenario
@@ -36,3 +37,5 @@ describe("GET /subscribers/:id", () => {
     expect(res.body).toHaveProperty("error", "Invalid subscriber ID.");
   });
 });
+
+
