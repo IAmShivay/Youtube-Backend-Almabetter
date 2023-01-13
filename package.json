@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "node src/index.js",
-    "start": "node src/index.js",
+    "devStart": "node index.js",
+    "start": "node index.js",
     "test": "jest"
   },
   "author": "",
