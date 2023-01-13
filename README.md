@@ -1,5 +1,12 @@
 # Youtube-Backend-Almabetter
 
+This project utilizes NodeJS, Express, MongoDB Atlas, and Mongoose to create a backend system. By utilizing specific routes in the URL, users have the ability to retrieve the number of subscribers, and access individual subscribers by their unique ID.
+
+## Features
+
+- Fetch all subscribers from remotely hoisted database
+- Fetch specific data from database via a route like all subscribers , name and subscribers, get the name of the subscribers via unique ID 
+
 1. First **install npm dependencies** of **express** and **mongoose** using `npm install -A` command.
 2. **Create database in your local computer** using `node src/createDatabase.js` command.
 3. **Start the backend server** using `npm start` or `node index.js` command. 
