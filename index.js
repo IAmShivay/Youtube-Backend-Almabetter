@@ -1,5 +1,5 @@
 const express = require('express')
-const app = require('./src/app.js')
+const app = require('./src/app')
 const mongoose = require('mongoose')
 const port = 3000
 
