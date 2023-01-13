@@ -3,6 +3,7 @@
 1. First **install npm dependencies** of **express** and **mongoose** using `npm install -A` command.
 2. **Create database in your local computer** using `node src/createDatabase.js` command.
 3. **Start the backend server** using `npm start` or `node index.js` command. 
+3. **For checking test cases ** using `npm run tests`.
 
 ## HTTP request methods used in the project
 1. GET [http://localhost:3000/subscribers](http://localhost:3000/subscribers) to get array of subscribers.
